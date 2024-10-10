@@ -1,0 +1,124 @@
+\input{includes.tex}
+\newcounter{aufgabe}
+
+\geometry{
+	left=1in,
+	right=2.5in,
+	top=2cm,
+	bottom=3cm,
+	a4paper
+}
+
+%--Colors--
+\definecolor{astral}{RGB}{3,57,108}
+\definecolor{dblue}{RGB}{1,31,75}
+
+
+%--General--
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\card}[1]{\operatorname{\#}\left(#1 \right)}
+\renewcommand{\iff}{\Leftrightarrow}
+\renewcommand{\implies}{\Rightarrow}
+\renewcommand{\tilde}{\widetilde}
+\renewcommand{\bar}{\overline}
+\newcommand{\aufz}[2]{#1_1, \dots, #1_{#2}}
+
+%--Algebra--
+
+\DeclareMathOperator{\Grad}{Grad}
+\DeclareMathOperator{\minpol}{minpol}
+\DeclareMathOperator{\charpol}{charpol}
+\DeclareMathOperator{\ord}{ord}
+\DeclareMathOperator{\im}{im}
+\DeclareMathOperator{\Bild}{Bild}
+\DeclareMathOperator{\ggT}{ggT}
+\DeclareMathOperator{\kgV}{kgV}
+\DeclareMathOperator{\Gal}{Gal}
+\DeclareMathOperator{\Aut}{Aut}
+\DeclareMathOperator{\Bij}{Bij}
+\DeclareMathOperator{\Abb}{Abb}
+\DeclareMathOperator{\galf}{\mathbb{F}}
+\DeclareMathOperator{\id}{id}
+\DeclareMathOperator{\Ker}{Ker}
+\DeclareMathOperator{\Span}{Span}
+\DeclareMathOperator{\Spec}{Spec}
+\DeclareMathOperator{\Lok}{Lok}
+\DeclareMathOperator{\einmat}{\mathbb{E}}
+\newcommand{\pp}{\mathfrak{p}}
+\newcommand{\zpz}{\Z / p\Z}
+\newcommand{\zmz}{\Z / m\Z}
+\newcommand{\znz}{\Z / n\Z}
+\newcommand{\zNz}{\Z / N\Z}
+\newcommand{\zmod}[1]{\Z / #1\Z}
+\newcommand{\kxn}[1]{k[x_1, \dots, x_{#1}]}
+\newcommand{\kx}{k[x]}
+\newcommand{\kyn}[1]{k[y_1, \dots, y_{#1}]}
+\newcommand{\ky}{k[y]}
+\newcommand{\epim}{\twoheadrightarrow}
+\newcommand{\monom}{\hookrightarrow}
+\newcommand{\nsub}{\vartriangleright}
+\newcommand{\nsubl}{\vartriangleleft}
+
+%--Analysis--
+
+\newcommand{\eps}{\epsilon}
+\newcommand{\veps}{\varepsilon}
+\newcommand{\vphi}{\varphi}
+\DeclareMathOperator{\re}{Re}
+\DeclareMathOperator{\imag}{Im}
+\DeclareMathOperator{\holo}{\mathcal{O}}
+
+%--Theorems
+\tcbuselibrary{theorems}
+\newtcbtheorem[number within=section, crefname={\mathrm{Satz}}{Satz}]{satz}{Satz}
+{before skip=2em, after skip=2em, colback=red!5!white, colframe=red!50!black}{S}
+\newtcbtheorem[number within=section, crefname={\mathrm{Korollar}}{Korollar}]{kor}
+{Korollar}{before skip=2em, after skip=2em}{K}
+\newtcbtheorem[number within=section, crefname={\mathrm{Definition}}{Definition}]{Def}
+{Definition}{before skip=2em, after skip=2em, colback=green!5!white, colframe=green!50!black}{D}
+\newtcbtheorem[number within=section, crefname={\mathrm{Hilfssatz}}{Hilfssatz}]{hilfs}
+{Hilfssatz}{before skip=2em, after skip=2em}{HS}
+\newtcbtheorem[number within=section, crefname={\mathrm{Lemma}}{Lemma}]{Lemma}{Lemma}
+{before skip=2em, after skip=2em}{L}
+\newtcbtheorem[number within=section, crefname={\mathrm{Folgerung}}{Folgerung}]{folg}
+{Folgerung}{before skip=2em, after skip=2em}{FOLG}
+\newtcbtheorem[number within=section, crefname={\mathrm{Aufgabe}}{Aufgabe}]{auf}{Aufgabe}{before skip=2em, after skip=2em, colback=blue!5!white, colframe=blue!50!black}{A}
+\newtcbtheorem[number within=section, crefname={\mathrm{Proposition}}{Proposition}]
+{prop}{Proposition}{before skip=2em, after skip=2em, colback=yellow!5!white, colframe=brown!50!black}{P}
+
+\declaretheoremstyle[
+	headfont=\color{blue}\normalfont,
+	spaceabove=1em,
+	spacebelow=1em
+]{beisp}
+\declaretheoremstyle[
+	headfont=\color{purple}\normalfont,
+	spaceabove=1em,
+	spacebelow=1em
+]{beme}
+\declaretheoremstyle[
+	headfont=\color{astral}\normalfont\bfseries,
+	spaceabove=1em,
+	spacebelow=1em
+]{aufg}
+\declaretheorem[
+	style=beisp,
+	name=Beispiel,
+	numberwithin=section
+]{bsp}
+\declaretheorem[
+	style=beme,
+	name=Bemerkung,
+	numberwithin=section
+]{bem}
+\declaretheorem[
+	style=aufg,
+	name=Aufgabe,
+]{Aufgabe}
+
+
+
