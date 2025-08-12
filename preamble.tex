@@ -1,56 +1,170 @@
-\input{includes.tex}
+\usepackage{amsthm,amsmath, amsfonts}
+%\usepackage[ngerman]{babel}
+\usepackage{tcolorbox}
+\usepackage{hyperref, cleveref}
+\usepackage[dvipsnames]{xcolor}
+\usepackage{thmtools}
+\usepackage{enumitem}
+%\usepackage{marginnote}
+\usepackage{todonotes}
+\usepackage{titling}
+\usepackage{geometry}
+
 \newcounter{aufgabe}
 
+%%%%%%%%%%%%%%%%%%
+%% Fancy Header %% 
+%%%%%%%%%%%%%%%%%%
+%May be uncommented if not liked
+\usepackage{fancyhdr}
+\fancyhead[L]{\textbf{\thetitle}}
+\fancyhead[R]{\theauthor}
+\setlength{\headheight}{14pt}
+% reversing title drop from margin
+\setlength{\droptitle}{-4em} 
+\setlength{\parindent}{0pt} 
+
+\newcommand{\mycomment}[1]{}
+
+\newcommand{\innertopmargin}{1.2\topskip}
+\newcommand{\innerbottommargin}{0.5\topskip}
+
+
+%%%%%%%%%%%%
+%% Margin %%
+%%%%%%%%%%%%
 \geometry{
 	left=1in,
 	right=2.5in,
 	top=2cm,
 	bottom=3cm,
+	marginparwidth=3cm,
+	marginparsep=0.8cm,
 	a4paper
 }
 
-%--Colors--
+%%%%%%%%%%%
+%% Fonts %%
+%%%%%%%%%%%
+\usepackage{libertinus}
+\usepackage[libertine]{newtxmath}
+
+%%%%%%%%%%%%
+%% Colors %%
+%%%%%%%%%%%%
 \definecolor{astral}{RGB}{3,57,108}
 \definecolor{dblue}{RGB}{1,31,75}
 
 
-%--General--
+%%%%%%%%%%%%%
+%% General %%
+%%%%%%%%%%%%%
 \newcommand{\C}{\mathbb{C}}
 \newcommand{\R}{\mathbb{R}}
 \newcommand{\Q}{\mathbb{Q}}
 \newcommand{\N}{\mathbb{N}}
 \newcommand{\Z}{\mathbb{Z}}
 \newcommand{\HH}{\mathbb{H}}
+\newcommand{\ohne}{\setminus}
 \newcommand{\card}[1]{\operatorname{\#}\left(#1 \right)}
 \renewcommand{\iff}{\Leftrightarrow}
 \renewcommand{\implies}{\Rightarrow}
 \renewcommand{\tilde}{\widetilde}
 \renewcommand{\bar}{\overline}
 \newcommand{\aufz}[2]{#1_1, \dots, #1_{#2}}
+\renewcommand{\P}{\mathcal{P}}
+\newcommand{\Ps}{\mathscr{P}}
+\newcommand{\vphi}{\varphi}
+\renewcommand{\phi}{\varphi}
+\newcommand{\norm}[1]{\left\lVert #1 \right\rVert}
+\newcommand{\abs}[1]{\left\lvert #1 \right\rvert}
+\newcommand{\cls}[1]{\left[ #1 \right]}
+\newcommand{\floor}[1]{\left\lfloor #1 \right\rfloor}
+\DeclareMathOperator{\pr}{pr}
+\DeclareMathOperator{\re}{Re}
+\DeclareMathOperator{\imag}{Im}
 
-%--Algebra--
 
-\DeclareMathOperator{\grad}{Grad}
+%%%%%%%%%%%%%%%%%%%%%
+%% Category Theory %%
+%%%%%%%%%%%%%%%%%%%%%
+\DeclareMathOperator{\Ob}{Ob}
+\newcommand{\Cat}{\mathcal{C}}
+\DeclareMathOperator{\Mor}{Mor}
+\DeclareMathOperator{\Set}{\mathbf{Set}}
+\DeclareMathOperator{\CTop}{\mathbf{Top}}
+\DeclareMathOperator{\HoTop}{\mathbf{HoTop}}
+\DeclareMathOperator{\CVec}{\mathbf{Vec}}
+\DeclareMathOperator{\Grp}{\mathbf{Grp}}
+\DeclareMathOperator{\AbGrp}{\mathbf{Ab}}
+\DeclareMathOperator{\Ring}{\mathbf{Ring}}
+\DeclareMathOperator{\RMod}{\mathbf{R-Mod}}
+\DeclareMathOperator{\AMod}{\mathbf{A-Mod}}
+
+
+%%%%%%%%%%%%%
+%% Algebra %%
+%%%%%%%%%%%%%
+\DeclareMathOperator{\Grad}{Grad}
 \DeclareMathOperator{\minpol}{minpol}
 \DeclareMathOperator{\charpol}{charpol}
+
+\DeclareMathOperator{\id}{id}
+\DeclareMathOperator{\Id}{Id}
 \DeclareMathOperator{\ord}{ord}
-\DeclareMathOperator{\im}{im}
-\DeclareMathOperator{\bild}{Bild}
+\DeclareMathOperator{\sgn}{sgn}
+\newcommand{\nsub}{\vartriangleright}
+\newcommand{\nsubl}{\vartriangleleft}
+
 \DeclareMathOperator{\ggT}{ggT}
 \DeclareMathOperator{\kgv}{kgV}
-\DeclareMathOperator{\gal}{Gal}
-\DeclareMathOperator{\aut}{Aut}
-\DeclareMathOperator{\bij}{Bij}
-\DeclareMathOperator{\abb}{Abb}
+\DeclareMathOperator{\im}{im}
+\DeclareMathOperator{\Bild}{Bild}
+\DeclareMathOperator{\Aut}{Aut}
+\DeclareMathOperator{\End}{End}
+\DeclareMathOperator{\Lin}{\mathcal{L}}
+\DeclareMathOperator{\Bij}{Bij}
+\DeclareMathOperator{\Abb}{Abb}
+\DeclareMathOperator{\Map}{Map}
+\DeclareMathOperator{\Mod}{Mod}
+\DeclareMathOperator{\Hom}{Hom}
+
+\DeclareMathOperator{\Gal}{Gal}
 \DeclareMathOperator{\F}{\mathbb{F}}
-\DeclareMathOperator{\id}{id}
+\DeclareMathOperator{\Cl}{Cl}
+\DeclareMathOperator{\Spec}{Spec}
+\DeclareMathOperator{\Lok}{Lok}
+\newcommand{\OK}{\mathcal{O}_K}
+\newcommand{\OL}{\mathcal{O}_L}
+\newcommand{\legendre}[2]{\left(\dfrac{#1}{#2}\right)}
+\renewcommand{\O}{\mathcal{O}}
+
+\renewcommand{\AA}{\mathbb{A}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\II}{\mathbb{I}}
+\newcommand{\KK}{\mathbb{K}}
+
 \DeclareMathOperator{\Ker}{Ker}
 \DeclareMathOperator{\Span}{Span}
-\DeclareMathOperator{\spec}{Spec}
-\DeclareMathOperator{\lok}{Lok}
-\DeclareMathOperator{\OK}{\mathcal{O}_K}
-\DeclareMathOperator{\einmat}{\mathbb{E}}
+\newcommand{\iso}{\cong}
+\newcommand{\B}{\mathcal{B}}
+\newcommand{\einmat}{\mathbb{E}}
+\newcommand{\bform}[2]{\left\langle #1, #2 \right\rangle}
+\DeclareMathOperator{\GL}{GL}
+\DeclareMathOperator{\SL}{SL}
+\DeclareMathOperator{\Orth}{O}
+\DeclareMathOperator{\SO}{SO}
+\DeclareMathOperator{\rank}{rank}
+\DeclareMathOperator{\disc}{disc}
+\DeclareMathOperator{\tr}{tr}
+\DeclareMathOperator{\Tr}{Tr}
+
 \newcommand{\pp}{\mathfrak{p}}
+\renewcommand{\aa}{\mathfrak{a}}
+\newcommand{\bb}{\mathfrak{b}}
+\newcommand{\qq}{\mathfrak{q}}
+\newcommand{\cc}{\mathfrak{c}}
+\newcommand{\mm}{\mathfrak{m}}
 \newcommand{\zpz}{\Z / p\Z}
 \newcommand{\zmz}{\Z / m\Z}
 \newcommand{\znz}{\Z / n\Z}
@@ -64,26 +178,47 @@
 \newcommand{\kx}{k[x]}
 \newcommand{\kyn}[1]{k[y_1, \dots, y_{#1}]}
 \newcommand{\ky}{k[y]}
+\newcommand{\gen}[1]{\langle #1 \rangle}
 \newcommand{\epim}{\twoheadrightarrow}
 \newcommand{\monom}{\hookrightarrow}
-\newcommand{\nsub}{\vartriangleright}
-\newcommand{\nsubl}{\vartriangleleft}
 
-%--Analysis--
+\DeclareMathOperator{\Zgez}{\Z_{\geq 0}}
+\DeclareMathOperator{\Zgz}{\Z_{> 0}}
+\DeclareMathOperator{\Zlez}{\Z_{\leq 0}}
+\DeclareMathOperator{\Zlz}{\Z_{< 0}}
 
-\newcommand{\eps}{\epsilon}
-\newcommand{\veps}{\varepsilon}
-\newcommand{\vphi}{\varphi}
-\DeclareMathOperator{\re}{Re}
-\DeclareMathOperator{\imag}{Im}
+\DeclareMathOperator{\Qgez}{\Q_{\geq 0}}
+\DeclareMathOperator{\Qgz}{\Q_{> 0}}
+\DeclareMathOperator{\Qlez}{\Q_{\leq 0}}
+\DeclareMathOperator{\Qlz}{\Q_{< 0}}
+
+
+%%%%%%%%%%%%%%
+%% Analysis %%
+%%%%%%%%%%%%%%
+\newcommand{\eps}{\varepsilon}
+\newcommand{\veps}{\epsilon}
 \DeclareMathOperator{\holo}{\mathcal{O}}
+\DeclareMathOperator{\vol}{vol}
+\DeclareMathOperator{\Rgez}{\R_{\geq 0}}
+\DeclareMathOperator{\Rgz}{\R_{> 0}}
+\DeclareMathOperator{\Rlez}{\R_{\leq 0}}
+\DeclareMathOperator{\Rlz}{\R_{< 0}}
 
-%--Theorems
+%%%%%%%%%%%%%%
+%% Theorems %%
+%%%%%%%%%%%%%%
+%% Boxed Theorems %%
+\mycomment{ %% Comented out because not in use, replaced by mdframed
 \tcbuselibrary{theorems}
 \newtcbtheorem[number within=section, crefname={\mathrm{Satz}}{Satz}]{satz}{Satz}
 {before skip=2em, after skip=2em, colback=red!5!white, colframe=red!50!black}{S}
+\newtcbtheorem[number within=section, crefname={\mathrm{Theorem}}{Theorem}]{thm}{Theorem}
+{before skip=2em, after skip=2em, colback=red!5!white, colframe=red!50!black}{S}
 \newtcbtheorem[number within=section, crefname={\mathrm{Korollar}}{Korollar}]{kor}
 {Korollar}{before skip=2em, after skip=2em}{K}
+\newtcbtheorem[number within=section, crefname={\mathrm{Corollary}}{Corollary}]{cor}
+{Corollary}{before skip=2em, after skip=2em}{C}
 \newtcbtheorem[number within=section, crefname={\mathrm{Definition}}{Definition}]{Def}
 {Definition}{before skip=2em, after skip=2em, colback=green!5!white, colframe=green!50!black}{D}
 \newtcbtheorem[number within=section, crefname={\mathrm{Hilfssatz}}{Hilfssatz}]{hilfs}
@@ -92,12 +227,15 @@
 {before skip=2em, after skip=2em}{L}
 \newtcbtheorem[number within=section, crefname={\mathrm{Folgerung}}{Folgerung}]{folg}
 {Folgerung}{before skip=2em, after skip=2em}{FOLG}
-\newtcbtheorem[number within=section, crefname={\mathrm{Aufgabe}}{Aufgabe}]{auf}{Aufgabe}{before skip=2em, after skip=2em, colback=blue!5!white, colframe=blue!50!black}{A}
+\newtcbtheorem[number within=section, crefname={\mathrm{Aufgabe}}{Aufgabe}]{auf}{Aufgabe}
+{before skip=2em, after skip=2em, colback=blue!5!white, colframe=blue!50!black}{A}
 \newtcbtheorem[number within=section, crefname={\mathrm{Proposition}}{Proposition}]
 {prop}{Proposition}{before skip=2em, after skip=2em, colback=yellow!5!white, colframe=brown!50!black}{P}
+}
 
+%% Normal Theorems %%
 \declaretheoremstyle[
-	headfont=\color{blue}\normalfont,
+	headfont=\normalfont,
 	spaceabove=1em,
 	spacebelow=1em
 ]{beisp}
@@ -111,11 +249,23 @@
 	spaceabove=1em,
 	spacebelow=1em
 ]{aufg}
+
+
 \declaretheorem[
 	style=beisp,
 	name=Beispiel,
 	numberwithin=section
 ]{bsp}
+\declaretheorem[
+	style=beisp,
+	name=Example,
+	numberwithin=section
+]{ex}
+\declaretheorem[
+	style=beisp,
+	name=Remark,
+	numberwithin=section
+]{rem}
 \declaretheorem[
 	style=beme,
 	name=Bemerkung,
@@ -124,7 +274,116 @@
 \declaretheorem[
 	style=aufg,
 	name=Aufgabe,
-]{Aufgabe}
+]{auf}
+\declaretheorem[
+	style=aufg,
+	name=Exercise,
+]{exe}
 
+
+%%%%%%%%%%%%%%%%%%%%%%%
+%% mdframed Theorems %%
+%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\usepackage[framemethod=TikZ]{mdframed}
+\mdfsetup{skipabove=1em,skipbelow=0em}
+\theoremstyle{definition}
+
+
+\declaretheoremstyle[
+    headfont=\bfseries\sffamily\color{ForestGreen!70!black}, bodyfont=\normalfont,
+    mdframed={
+        linewidth=2pt,
+        rightline=false, topline=false, bottomline=false,
+        linecolor=ForestGreen, backgroundcolor=ForestGreen!5,
+		innertopmargin = \innertopmargin,
+		innerbottommargin = \innerbottommargin,
+    }
+]{thmgreenbox}
+
+\declaretheoremstyle[
+    headfont=\bfseries\sffamily\color{NavyBlue!70!black}, bodyfont=\normalfont,
+    mdframed={
+        linewidth=2pt,
+        rightline=false, topline=false, bottomline=false,
+        linecolor=NavyBlue, backgroundcolor=NavyBlue!5,
+		innertopmargin = \innertopmargin,
+		innerbottommargin = \innerbottommargin,
+    }
+]{thmbluebox}
+
+\declaretheoremstyle[
+    headfont=\bfseries\sffamily\color{NavyBlue!70!black}, bodyfont=\normalfont,
+    mdframed={
+        linewidth=2pt,
+        rightline=false, topline=false, bottomline=false,
+        linecolor=NavyBlue,
+		innertopmargin = \innertopmargin,
+		innerbottommargin = \innerbottommargin,
+    }
+]{thmblueline}
+
+\declaretheoremstyle[
+    headfont=\bfseries\sffamily\color{RawSienna!70!black}, bodyfont=\normalfont,
+    mdframed={
+        linewidth=2pt,
+        rightline=false, topline=false, bottomline=false,
+        linecolor=RawSienna, backgroundcolor=RawSienna!5,
+		innertopmargin = \innertopmargin,
+		innerbottommargin = \innerbottommargin,
+    }
+]{thmredbox}
+
+\declaretheoremstyle[
+    headfont=\bfseries\sffamily\color{RawSienna!70!black}, bodyfont=\normalfont,
+    numbered=no,
+    mdframed={
+        linewidth=2pt,
+        rightline=false, topline=false, bottomline=false,
+        linecolor=RawSienna, backgroundcolor=RawSienna!1,
+		innertopmargin = \innertopmargin,
+		innerbottommargin = \innerbottommargin,
+    },
+    qed=\qedsymbol
+]{thmproofbox}
+
+\declaretheoremstyle[
+    headfont=\bfseries\sffamily\color{NavyBlue!70!black}, bodyfont=\normalfont,
+    numbered=no,
+    mdframed={
+        linewidth=2pt,
+        rightline=false, topline=false, bottomline=false,
+        linecolor=NavyBlue, backgroundcolor=NavyBlue!1,
+		innertopmargin = \innertopmargin,
+		innerbottommargin = \innerbottommargin,
+    },
+]{thmexplanationbox}
+
+
+\declaretheorem[name=Theorem, style=thmredbox]{Theorem}
+\declaretheorem[name=Proof, style=thmproofbox]{tempproof}
+\declaretheorem[name=Beweis, style=thmproofbox]{tempbew}
+\declaretheorem[name=Proof, style=thmexplanationbox]{remproof}
+\declaretheorem[name=Proof, style=thmexplanationbox]{bembew}
+\newenvironment{Proof}[1][\proofname]{\vspace{-1em}\begin{tempproof}}{\end{tempproof}}
+\newenvironment{Beweis}[1][\proofname]{\vspace{-1em}\begin{tempbew}}{\end{tempbew}}
+\newenvironment{RemProof}[1][\proofname]{\vspace{-1em}\begin{remproof}}{\end{remproof}}
+\newenvironment{BemBeweis}[1][\proofname]{\vspace{-1em}\begin{bembew}}{\end{bembew}}
+
+\declaretheorem[name=Lemma, style=thmredbox]{Lemma}
+\declaretheorem[name=Proposition, style=thmredbox]{Proposition}
+
+\declaretheorem[name=Remark, style=thmbluebox]{Remark}
+\declaretheorem[name=Bemerkung, style=thmbluebox]{Bemerkung}
+
+\declaretheorem[name=Example, style=thmbluebox]{Example}
+\declaretheorem[name=Beispiel, style=thmbluebox]{Beispiel}
+
+\declaretheorem[name=Corollary, style=thmredbox]{Corollary}
+\declaretheorem[name=Korollar, style=thmredbox]{Korollar}
+\declaretheorem[name=Folgerung, style=thmredbox]{Folgerung}
+
+\declaretheorem[name=Satz, style=thmredbox]{Satz}
 
 
